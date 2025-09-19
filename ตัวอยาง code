@@ -1,0 +1,92 @@
+Start to the Flutter
+lab 1
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      // Application name
+      title: 'Flutter Hello World',
+      // Application theme data, you can set the colors for the application as
+      // you want
+      theme: ThemeData(
+        // useMaterial3: false,
+        primarySwatch: Colors.blue,
+      ),
+      // A widget which will be started on application startup
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+// เปลี่ยนจาก StatelessWidget เป็น StatefulWidget
+class MyHomePage extends StatefulWidget {
+  final String title;
+  const MyHomePage({super.key, required this.title});
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  // ตัวแปรสำหรับเก็บค่าที่ user พิมพ์
+  String userInput = '';
+  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        // The title text which will be shown on the action bar
+        title: Text(widget.title),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // ข้อความเดิม
+            Text(
+              'Hello, World!',
+              style: TextStyle(fontSize: 24),
+            ),
+            
+            SizedBox(height: 30),
+            
+            // TextField ที่คุณต้องการแทรก
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'ชื่อผู้ใช้',
+                hintText: 'กรุณาใส่ชื่อผู้ใช้',
+                border: OutlineInputBorder(),
+              ),
+              onChanged: (value) {
+                print('ค่าที่พิมพ์: $value');
+                setState(() {
+                  userInput = value; // บันทึกค่าที่พิมพ์
+                });
+              },
+            ),
+            
+            SizedBox(height: 20),
+            
+            // แสดงค่าที่ user พิมพ์
+            Text(
+              'คุณพิมพ์: $userInput',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.blue,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
