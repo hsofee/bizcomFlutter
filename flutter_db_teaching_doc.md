@@ -17,6 +17,8 @@
 7. [Best Practices](#7-best-practices)
 
 ---
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/25b8291d-96f9-4255-8ecd-5c1bdbbd9715" />
+
 
 ## 1. บทนำและการเตรียมพร้อม
 
@@ -1595,3 +1597,5 @@ testWidgets('UserCard displays user information', (WidgetTester tester) async {
 **จัดทำโดย:** [ชื่อผู้สอน]  
 **วันที่:** [วันที่จัดทำ]  
 **เวอร์ชัน:** 1.0
+
+
